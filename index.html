@@ -1,18 +1,29 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="index.css">
+    <meta charset="UTF-8">
+    <title>Activity Generator</title>
+    <link rel="stylesheet" href="index.css">
 </head>
-
 <body>
-	<main>
-		<h1 id="title">🤖 BoredBot 🤖</h1>
-		<p id="activity" aria-live="polite">Find something to do</p>
-		<button id="get-activity" aria-label="Find a new activity."></button>
-	</main>
-	<script src="index.js"></script>
-</body>
 
+    <div class="container">
+        <h1 id="title">Bored? Let’s Fix That.</h1>
+
+        <div class="card">
+            <p id="activity">Click below to discover something fun</p>
+            <div class="details">
+                <span id="type"></span>
+                <span id="participants"></span>
+            </div>
+        </div>
+
+        <button id="get-activity">Generate Idea</button>
+
+        <div id="loader" class="hidden"></div>
+        <p id="error" class="hidden"></p>
+    </div>
+
+<script src="index.js"></script>
+</body>
 </html>
