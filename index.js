@@ -2,15 +2,15 @@ const activityText = document.getElementById("activity")
 const typeText = document.getElementById("type")
 const participantsText = document.getElementById("participants")
 const button = document.getElementById("get-activity")
-const loader = document.getElementById("loader")
+const loadingText = document.getElementById("loading")
 const errorText = document.getElementById("error")
 
 button.addEventListener("click", getActivity)
 
 async function getActivity() {
-    loader.classList.remove("hidden")
+
+    loadingText.classList.remove("hidden")
     errorText.classList.add("hidden")
-    activityText.textContent = ""
 
     try {
         const response = await fetch("https://apis.scrimba.com/bored/api/activity")
@@ -22,13 +22,15 @@ async function getActivity() {
         const data = await response.json()
 
         activityText.textContent = data.activity
-        typeText.textContent = `Type: ${data.type}`
-        participantsText.textContent = `Participants: ${data.participants}`
+        typeText.textContent = `• ${data.type}`
+        participantsText.textContent = `• ${data.participants} person(s)`
+
+        document.getElementById("title").textContent = "Here’s something for you 🌼"
 
     } catch (error) {
-        errorText.textContent = "Something went wrong. Try again."
+        errorText.textContent = "Couldn't fetch an idea right now. Try again!"
         errorText.classList.remove("hidden")
-    } finally {
-        loader.classList.add("hidden")
     }
+
+    loadingText.classList.add("hidden")
 }
